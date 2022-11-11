@@ -1,45 +1,51 @@
-let firstForm = document.querySelector(`#formContainer`);
-let cost =  //this will target the array (of expenses) so we can select total cost
-let remainingIncome = income - cost;
-let expensesForm = document.querySelector(`placeholder for form that has cost`)
-let costArray = [{
-  numberCost: 50, typeCost: `bill`},
-  {numberCost: 50, typeCost: `bill`},
-  {numberCost: 50, typeCost: `bill`},
-]
+let costArray = [
+  { numberCost: 50, typeCost: `bill` },
+  { numberCost: 50, typeCost: `bill` },
+  { numberCost: 50, typeCost: `bill` },
+];
 
+let firstForm = document.querySelector(`#formContainer`);
+let cost = totalSumOfNumberCost(costArray);
+// let remainingIncome = income - cost;
+let expensesForm = document.querySelector(`#formContainer1`);
+
+//This is posting the remaining income after submit
 firstForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  let data = FormData(firstForm);
+  let data = new FormData(firstForm);
 
-  let income = data.get("inputContainerName");
+  let income = data.get("income");
 
-  let remainingIncome = income - cost;
+  let remainingIncome = +income - +cost;
 
   let testDiv = document.querySelector("#test");
 
   let pastElement = document.createElement("p");
   pastElement.innerText = `${remainingIncome}`;
   testDiv.appendChild(pastElement);
-  console.log(testDiv);
 });
-
-expensesForm.addEventListener(`submit`,(e) => {
+// this adds cost to costArray and updates the remaining income variable
+expensesForm.addEventListener(`submit`, (e) => {
   e.preventDefault();
-  let data = FormData(expensesForm)
+  let data = new FormData(expensesForm);
+  let typeCost = document.querySelector(`#typeCost`);
 
-  let numberCost = data.get(`number for cost`)
-  let typeCost = data.get(`type of cost selected with drop down`)
+  let numberCost = data.get(`number`);
+  // let typeCost = data.get(`type`)
   let newCost = {
-    numberCost: numberCost,
-    typeCost: typeCost
+    numberCost: +numberCost,
+    typeCost: typeCost.value,
+  };
+  costArray.push(newCost);
+  console.log(costArray);
+  totalSumOfNumberCost(costArray);
+});
+// this finds the sum of the cost of ever item in the array
+function totalSumOfNumberCost(array) {
+  let totalSum = 0;
+  for (i of array) {
+    console.log(i.numberCost);
+    totalSum += i.numberCost;
   }
-  costArray.push(newCost)
-})
-
-function totalSumOfNumberCost(costArray) {
-  let totalSum
-  for (i of costArray){
-    totalSum += i.numberCost
-  }
+  return totalSum;
 }
