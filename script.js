@@ -22,6 +22,7 @@ firstForm.addEventListener("submit", (e) => {
 
   let pastElement = document.createElement("p");
   pastElement.innerText = `${remainingIncome}`;
+  testDiv.innerHTML = "";
   testDiv.appendChild(pastElement);
 });
 // this adds cost to costArray and updates the remaining income variable
