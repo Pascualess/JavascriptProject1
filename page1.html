@@ -17,20 +17,7 @@
         <input class="name" placeholder="name" type ="typeOfText"></input> -->
         <label class="budget">Enter Budget</label>
         <input class="budget" placeholder="$" type ="typeOfNumbers" name ="expensesNumber"></input>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Payment Period
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Weekly</a></li>
-              <li><a class="dropdown-item" href="#">Bi-Weekly</a></li>
-              <li><a class="dropdown-item" href="#">Semi-Monthly</a></li>
-              <li><a class="dropdown-item" href="#">Monthly</a></li>
-              <li><a class="dropdown-item" href="#">Quarterly</a></li>
-              <li><a class="dropdown-item" href="#">Semi-Annual</a></li>
-              <li><a class="dropdown-item" href="#">Annual</a></li>
-            </ul>
-        </div>
+        
         <button class ="submit">Submit</button>
         
     </form>
@@ -46,41 +33,15 @@
     <form id="expensesForm">
         <label class="expenses">Enter Expense</label>
         <input class="expenses" placeholder="$" type ="number" name ="expenseNumber"></input>
-    <div class="dropdown">
-
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Expense Type
-          </button>
-          <select class="dropdown-menu" id="expensesType">
+    
+        
+          <select  id="expensesType">
             <option class="dropdown-item" href="#" id="entertainmentOption" value ="entertainment">Entertainment</option>
-            <option class="dropdown-item" href="#" id="foodOption" value="food">Food</option>
-            <option class="dropdown-item" href="#" id="clothingOption" value="clothing">Clothing</option>
+            <option clahss="dropdown-item" href="#" id="foodOption" value="food">Food</option>
+            <option class="dropdown-item" ref="#" id="clothingOption" value="clothing">Clothing</option>
             <option class="dropdown-item" href="#" id="billsOption" value="bills">Bills</option>
            
-          </select>
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Is This Recurring?
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Yes</a></li>
-          <li><a class="dropdown-item" href="#">No</a></li>
-          </ul>
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Payment Period
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#" id="weeklyCalc">Weekly</a></li>
-          <li><a class="dropdown-item" href="#" id="biWeeklyCalc">Bi-Weekly</a></li>
-          <li><a class="dropdown-item" href="#" id="semiMonthlyCalc">Semi-Monthly</a></li>
-          <li><a class="dropdown-item" href="#" id="monthlyCalc">Monthly</a></li>
-          <li><a class="dropdown-item" href="#" id="quarterlyCalc">Quarterly</a></li>
-          <li><a class="dropdown-item" href="#" id="semiAnnualCalc">Semi-Annual</a></li>
-          <li><a class="dropdown-item" href="#" id="annualCalc">Annual</a></li>
-        </ul>
-          <label class="addDate">Date</label>
-          <input class="addDate" placeholder="MM/DD/YYYY" type ="calendarDate"></input>
-    
-      </div>
+          
       <button class ="submit">Submit</button>
         
     </form>
