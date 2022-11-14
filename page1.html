@@ -15,7 +15,7 @@
         <!-- <label class="name">Enter name</label>
         <input class="name" placeholder="name" type ="typeOfText"></input> -->
         <label class="budget">Enter Budget</label>
-        <input class="budget" placeholder="$" type ="typeOfNumbers"></input>
+        <input class="budget" placeholder="$" type ="typeOfNumbers" name ="expenseNumber"></input>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Payment Period
@@ -35,26 +35,26 @@
     </form>
 </div>
 <!-- Income Array -->
-<div></div>
+<div id="incomeArray"></div>
 <!-- Income Total -->
-<div></div>
+<div id="incomeTotal"></div>
 <!-- Comparisons sections -->
 <!-- <div></div> -->
    <!-- Recurring Expenses -->
     <div id="expenseEntry">
     <form id="expensesForm">
         <label class="expenses">Enter Expense</label>
-        <input class="expenses" placeholder="$" type ="typeOfNumbers"></input>
+        <input class="expenses" placeholder="$" type ="typeOfNumbers" name ="expenseNumber"></input>
     <div class="dropdown">
 
         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Expense Type
           </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Entertainment</a></li>
-            <li><a class="dropdown-item" href="#">Food</a></li>
-            <li><a class="dropdown-item" href="#">Clothing</a></li>
-            <li><a class="dropdown-item" href="#">Bills</a></li>
+          <ul class="dropdown-menu" id="expenseType">
+            <li><a class="dropdown-item" href="#" id="entertainmentOption">Entertainment</a></li>
+            <li><a class="dropdown-item" href="#" id="foodOption">Food</a></li>
+            <li><a class="dropdown-item" href="#" id="clothingOption">Clothing</a></li>
+            <li><a class="dropdown-item" href="#" id="billsOption">Bills</a></li>
            
           </ul>
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -68,13 +68,13 @@
             Payment Period
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Weekly</a></li>
-          <li><a class="dropdown-item" href="#">Bi-Weekly</a></li>
-          <li><a class="dropdown-item" href="#">Semi-Monthly</a></li>
-          <li><a class="dropdown-item" href="#">Monthly</a></li>
-          <li><a class="dropdown-item" href="#">Quarterly</a></li>
-          <li><a class="dropdown-item" href="#">Semi-Annual</a></li>
-          <li><a class="dropdown-item" href="#">Annual</a></li>
+          <li><a class="dropdown-item" href="#" id="weeklyCalc">Weekly</a></li>
+          <li><a class="dropdown-item" href="#" id="biWeeklyCalc">Bi-Weekly</a></li>
+          <li><a class="dropdown-item" href="#" id="semiMonthlyCalc">Semi-Monthly</a></li>
+          <li><a class="dropdown-item" href="#" id="monthlyCalc">Monthly</a></li>
+          <li><a class="dropdown-item" href="#" id="quarterlyCalc">Quarterly</a></li>
+          <li><a class="dropdown-item" href="#" id="semiAnnualCalc">Semi-Annual</a></li>
+          <li><a class="dropdown-item" href="#" id="annualCalc">Annual</a></li>
         </ul>
           <label class="addDate">Date</label>
           <input class="addDate" placeholder="MM/DD/YYYY" type ="calendarDate"></input>
@@ -85,9 +85,9 @@
     </form>
 </div>
 <!-- Expenses Array -->
-<div></div>
+<div id ="expensesArray"></div>
 <!-- Expenses Total -->
-<div></div>
+<div id="expensesTotal"></div>
 <!-- additions -->
 <!-- <div id="aExpenses">
     <form id="formContainer">
