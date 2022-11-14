@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Buddy</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-</head>
+    <link href="./styles.css" rel="stylesheet"
+  </head>
 <body>
    <!-- Income Entry -->
 <div id="incomeEntry">
@@ -15,7 +16,7 @@
         <!-- <label class="name">Enter name</label>
         <input class="name" placeholder="name" type ="typeOfText"></input> -->
         <label class="budget">Enter Budget</label>
-        <input class="budget" placeholder="$" type ="typeOfNumbers" name ="expenseNumber"></input>
+        <input class="budget" placeholder="$" type ="typeOfNumbers" name ="expensesNumber"></input>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Payment Period
@@ -41,7 +42,7 @@
 <!-- Comparisons sections -->
 <!-- <div></div> -->
    <!-- Recurring Expenses -->
-    <div id="expenseEntry">
+    <div id="expensesEntry">
     <form id="expensesForm">
         <label class="expenses">Enter Expense</label>
         <input class="expenses" placeholder="$" type ="typeOfNumbers" name ="expenseNumber"></input>
@@ -50,13 +51,13 @@
         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Expense Type
           </button>
-          <ul class="dropdown-menu" id="expenseType">
-            <li><a class="dropdown-item" href="#" id="entertainmentOption">Entertainment</a></li>
-            <li><a class="dropdown-item" href="#" id="foodOption">Food</a></li>
-            <li><a class="dropdown-item" href="#" id="clothingOption">Clothing</a></li>
-            <li><a class="dropdown-item" href="#" id="billsOption">Bills</a></li>
+          <select class="dropdown-menu" id="expensesType">
+            <option class="dropdown-item" href="#" id="entertainmentOption" value ="entertainment">Entertainment</option>
+            <option class="dropdown-item" href="#" id="foodOption" value="food">Food</option>
+            <option class="dropdown-item" href="#" id="clothingOption" value="clothing">Clothing</option>
+            <option class="dropdown-item" href="#" id="billsOption" value="bills">Bills</option>
            
-          </ul>
+          </select>
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Is This Recurring?
         </button>
