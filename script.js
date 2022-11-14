@@ -4,21 +4,21 @@ let costArray = [
   { numberCost: 50, typeCost: `bill` },
 ];
 
-let firstForm = document.querySelector(`#formContainer`);
+let firstForm = document.querySelector(`#incomeForm`);
 let cost = totalSumOfNumberCost(costArray);
 // let remainingIncome = income - cost;
-let expensesForm = document.querySelector(`#formContainer1`);
-
+let expensesForm = document.querySelector(`#expensesForm`);
+console.log(expensesForm)
 //This is posting the remaining income after submit
 firstForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let data = new FormData(firstForm);
 
-  let income = data.get("income");
+  let income = data.get("expensesNumber");
 
   let remainingIncome = +income - +cost;
 
-  let testDiv = document.querySelector("#test");
+  let testDiv = document.querySelector("#incomeTotal");
 
   let pastElement = document.createElement("p");
   pastElement.innerText = `${remainingIncome}`;
@@ -29,9 +29,9 @@ firstForm.addEventListener("submit", (e) => {
 expensesForm.addEventListener(`submit`, (e) => {
   e.preventDefault();
   let data = new FormData(expensesForm);
-  let typeCost = document.querySelector(`#typeCost`);
+  let typeCost = document.querySelector(`#expensesType`);
 
-  let numberCost = data.get(`number`);
+  let numberCost = data.get(`expenseNumber`);
   // let typeCost = data.get(`type`)
   let newCost = {
     numberCost: +numberCost,
@@ -50,3 +50,7 @@ function totalSumOfNumberCost(array) {
   }
   return totalSum;
 }
+// function makeExpenseList(item) {
+//   for (let item of costArray)
+  
+// }
