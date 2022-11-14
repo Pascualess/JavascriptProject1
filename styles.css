@@ -1,0 +1,33 @@
+ @media screen and (max-width: 650px) {
+    
+ }
+
+.incomeEntry{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.incomeArray{
+    display: flex;
+    flex-direction: column;
+    justify-content:baseline;
+    align-items: center;
+}
+.incomeTotal{
+    display: flex;
+}
+
+.expensesEntry{
+
+}
+
+.expensesArray{
+    display: flex;
+    flex-direction: column;
+    justify-content:baseline;
+    align-items: center;
+}
+
+.expensesTotal{
+
+}
