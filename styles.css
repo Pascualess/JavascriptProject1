@@ -28,22 +28,30 @@ header {
   }
   body {
     /* need to figure out why the margins are not changing from the below items*/
-    margin-left: 1%;
-    margin-right: 0%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  #incomeEntry {
-    /* display: flex; */
+
+  .formLabel {
+    font-size: 25px;
+  }
+
+  #incomeForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #expensesForm {
+    display: flex;
     flex-direction: column;
     /* justify-content: flex-start; */
   }
-  #expensesEntry {
-    /* display: flex; */
-    flex-direction: column;
-    /* justify-content: flex-start; */
-  }
-  .submit {
+  /* .submit {
     align-items:;
-  }
+  } */
 }
 
 #incomeEntry {
