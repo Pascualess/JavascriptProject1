@@ -4,6 +4,7 @@ let firstForm = document.querySelector(`#incomeForm`);
 let cost = totalSumOfNumberCost(costArray);
 let expensesForm = document.querySelector(`#expensesForm`);
 let pieButton = document.querySelector(`#pieButton`);
+let chartContainer = document.querySelector(`#chartContainer`)
 //This is posting the remaining income after submit
 firstForm.addEventListener("submit", displayIncome);
 
@@ -53,6 +54,10 @@ expensesForm.addEventListener(`submit`, (e) => {
   ExpensesTotalDiv.appendChild(pastElement);
   console.log(totalSumOfNumberCost(costArray));
   clear.innerHTML = ``; //removes the filter array
+  if (pieButton.innerText === ``){
+    chartContainer.innerHTML = `<canvas id="myChart"></canvas>`
+    displayChart()
+  }
 });
 
 // this finds the sum of the cost of ever item in the array
@@ -104,6 +109,10 @@ function setFilter() {
   if (filterSetting.value === `bills`) {
     forFilterDisplay(`bills`, filterDisplay, filterSetting);
   }
+  if (pieButton.innerText === ``){
+    chartContainer.innerHTML = `<canvas id="myChart"></canvas>`
+    displayChart()
+  }
 }
 
 function forFilterDisplay(expenseType, filterDisplay, filterSetting) {
@@ -134,7 +143,7 @@ function findSumOfFilter(expenseType) {
 
 pieButton.addEventListener(`click`, displayChart);
 function displayChart() {
-  pieButton.innerText = `Update Chart`
+  pieButton.innerText = ``
   let data = new FormData(firstForm);
   let income = data.get("expensesNumber")
   let remainingIncome = +income - +totalSumOfNumberCost(costArray)
