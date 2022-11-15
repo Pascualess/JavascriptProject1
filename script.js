@@ -143,7 +143,12 @@ function findSumOfFilter(expenseType) {
 
 pieButton.addEventListener(`click`, displayChart);
 function displayChart() {
-  pieButton.innerText = ``
+  if (pieButton.innerText === `Remove`){
+    chartContainer.innerHTML = `<canvas id="myChart"></canvas>`
+    pieButton.innerText = `Pie Chart`
+    return
+  }
+  pieButton.innerText = `Remove`
   let data = new FormData(firstForm);
   let income = data.get("expensesNumber")
   let remainingIncome = +income - +totalSumOfNumberCost(costArray)
