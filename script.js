@@ -6,6 +6,7 @@ let expensesForm = document.querySelector(`#expensesForm`);
 //This is posting the remaining income after submit
 firstForm.addEventListener("submit", displayIncome);
 
+//This function name is wonky. I didn't realize it was a form submission until a few lines in.
 function displayIncome(e) {
   e.preventDefault();
   let data = new FormData(firstForm);
@@ -22,9 +23,11 @@ function displayIncome(e) {
   testDiv.appendChild(pastElement);
 }
 
+//This could be broken up a bit into smaller, more readable functions
 // this adds cost to costArray and updates the remaining income variable
 expensesForm.addEventListener(`submit`, (e) => {
   e.preventDefault();
+  //nitpick: if it's global, maybe bring it up top with the other querySelectors because then it's easy to find all of them.
   let clear = document.querySelector(`#expensesTotal`);
   let data2 = new FormData(firstForm); //gets the income input
   let income = data2.get("expensesNumber"); //sets variable to that input
@@ -35,6 +38,7 @@ expensesForm.addEventListener(`submit`, (e) => {
   let numberCost = data.get(`expenseNumber`); // sets input equal to variable
   // let typeCost = data.get(`type`)
 
+  //Good use of OOP (object oriented programming)
   let newCost = {
     numberCost: +numberCost,
     typeCost: typeCost.value,
@@ -46,11 +50,13 @@ expensesForm.addEventListener(`submit`, (e) => {
     return;
   }
 
+  //Yes, functions like this are good.
   // totalSumOfNumberCost(costArray);// finds total cost on the array? (not sure why i need this it returns the sum)
   displayExpenseList(); // goes through the list and prints them to a <ul>
 
   let testDiv = document.querySelector("#incomeTotal"); // targets where im putting the remain income
 
+  //Is this clean up?
   let pastElement = document.createElement("p"); //variable to make the <p>
   pastElement.innerText = `${+income - totalSumOfNumberCost(costArray)}`; //prints the remainingIncome
   testDiv.innerHTML = ""; //emptys the list to prevent duping
@@ -85,14 +91,19 @@ function makeExpenseList(i) {
 
 filter.addEventListener(`click`, setFilter);
 
+//If you see a big ol' function like this, it's a sign that you may need to break it up
+//Which is normal! Basically what you're doing is filtering based on the category of the expense then displaying the expenses on screen.
+//Could you maybe write a function that takes in the type of expense then properly writes the divs to the right parent element?
+
 function setFilter() {
   let filterSetting = document.querySelector(`#expensesFilter`);
-
+  //ExpensesTotalDiv makes more sense
   let testDiv = document.querySelector(`#expensesTotal`);
   if (filterSetting.value === `entertainment`) {
     let result = costArray.filter((i) => i.typeCost === `entertainment`);
     testDiv.innerHTML = ``;
     let sum = 0;
+    //please stay away from single character variable names. It took me too long to figure out what 'i' was
     for (i of result) {
       sum += i.numberCost;
       let elem = document.createElement("li");
