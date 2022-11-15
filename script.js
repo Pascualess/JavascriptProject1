@@ -117,3 +117,17 @@ function forFilterDisplay(expenseType, filterDisplay, filterSetting) {
     filterDisplay.appendChild(elemSum);
   }
 }
+const ctx = document.getElementById('myChart');
+new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Remaining Budget', 'entertainment', 'food', 'clothing', 'bills'],
+      datasets: [{
+        data: [12, 19, 3, 5, 2],
+        borderWidth: 1
+      }]
+    },
+    options: {
+     
+    }
+  });
