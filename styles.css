@@ -2,50 +2,61 @@ html {
     color: #1D3461;
     background-color: #1F487E;
     font-size: 14pt;
+    height: 100%;
 }
 
 body{
     margin-left: 10%;
     margin-right: 10%;
     background-color: #D2DFEF;
+    min-height: 100%;
+
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 768px) {
+    html{
+        font-size: 12pt;
+    };
+    body{
+        /* need to figure out why the margins are not changing from the below items*/
+        margin-left: 1%;
+        margin-right: 0%;
+    };
 
- }
+}
 
 
-.incomeEntry{
+#incomeEntry{
     display:flex;
     flex-direction: row;
     justify-content: flex-start;
 }
-.incomeArray{
+#incomeArray{
     display: flex;
     flex-direction: column;
     justify-content:baseline;
     align-items: center;
 }
-.incomeTotal{
+#incomeTotal{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.expensesEntry{
+#expensesEntry{
     display:flex;
     flex-direction: row;
     justify-content: flex-start;
 }
 
-.expensesArray{
+#expensesArray{
     display: flex;
     flex-direction: column;
     justify-content:baseline;
     align-items: center;
 }
 
-.expensesTotal{
+#expensesTotal{
     display: flex;
     justify-content: center;
     align-items: center;
