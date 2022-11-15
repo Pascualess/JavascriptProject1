@@ -28,7 +28,7 @@ expensesForm.addEventListener(`submit`, (e) => {
   let data = new FormData(expensesForm);
   let typeCost = document.querySelector(`#expensesType`);
   let numberCost = data.get(`expenseNumber`);
-  let testDiv = document.querySelector("#incomeTotal");
+  let ExpensesTotalDiv = document.querySelector("#incomeTotal");
   let pastElement = document.createElement("p");
   let newCost = {
     numberCost: +numberCost,
@@ -46,8 +46,8 @@ expensesForm.addEventListener(`submit`, (e) => {
   displayExpenseList(); // goes through the list and prints them to a <ul>
 
   pastElement.innerText = `Weekly Budget Remaining: $${+income - totalSumOfNumberCost(costArray)}`;
-  testDiv.innerHTML = "";
-  testDiv.appendChild(pastElement);
+  ExpensesTotalDiv.innerHTML = "";
+  ExpensesTotalDiv.appendChild(pastElement);
   console.log(totalSumOfNumberCost(costArray));
   clear.innerHTML = ``; //removes the filter array
 });
@@ -106,10 +106,10 @@ function forFilterDisplay(expenseType, filterDisplay, filterSetting) {
     let result = costArray.filter((i) => i.typeCost === `${expenseType}`);
     filterDisplay.innerHTML = ``;
     let sum = 0;
-    for (i of result) {
-      sum += i.numberCost;
+    for (index of result) {
+      sum += index.numberCost;
       let elem = document.createElement("li");
-      elem.innerText = `amount: $${i.numberCost} | expense type: ${i.typeCost}`;
+      elem.innerText = `amount: $${index.numberCost} | expense type: ${index.typeCost}`;
       filterDisplay.appendChild(elem);
     }
     let elemSum = document.createElement(`p`);
