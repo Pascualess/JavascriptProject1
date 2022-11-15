@@ -1,7 +1,6 @@
 let costArray = [
-
 ];
-
+let filter = document.querySelector(`#expensesform`)
 let firstForm = document.querySelector(`#incomeForm`);
 let cost = totalSumOfNumberCost(costArray);
 let expensesForm = document.querySelector(`#expensesForm`);
@@ -83,4 +82,12 @@ function makeExpenseList(i) {
   let elem = document.createElement("li");
   elem.innerText = `amount: $${i.numberCost} | expense type: ${i.typeCost}`;
   expensesArray.appendChild(elem);
+}
+
+filter.addEventListener(`click`, setFilter)
+
+
+
+function setFilter(){
+
 }
