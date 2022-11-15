@@ -25,7 +25,7 @@ function displayIncome(e) {
 // this adds cost to costArray and updates the remaining income variable
 expensesForm.addEventListener(`submit`, (e) => {
   e.preventDefault();
-  let clear = document.querySelector(`#expensesTotal`);
+  let clear = document.querySelector(`#filterDisplay`);
   let data2 = new FormData(firstForm); //gets the income input
   let income = data2.get("expensesNumber"); //sets variable to that input
   // let remainingIncome = +income - +totalSumOfNumberCost(costArray);// variable is equal to the input - the array (the array is empty)
@@ -88,61 +88,61 @@ filter.addEventListener(`click`, setFilter);
 function setFilter() {
   let filterSetting = document.querySelector(`#expensesFilter`);
 
-  let testDiv = document.querySelector(`#expensesTotal`);
+  let filterDisplay = document.querySelector(`#filterDisplay`);
   if (filterSetting.value === `entertainment`) {
     let result = costArray.filter((i) => i.typeCost === `entertainment`);
-    testDiv.innerHTML = ``;
+    filterDisplay.innerHTML = ``;
     let sum = 0;
     for (i of result) {
       sum += i.numberCost;
       let elem = document.createElement("li");
       elem.innerText = `amount: $${i.numberCost} | expense type: ${i.typeCost}`;
-      testDiv.appendChild(elem);
+      filterDisplay.appendChild(elem);
     }
     let elemSum = document.createElement(`p`);
     elemSum.innerText = `The total cost of entertainment: $${sum}`;
-    testDiv.appendChild(elemSum);
+    filterDisplay.appendChild(elemSum);
   }
   if (filterSetting.value === `food`) {
     let result = costArray.filter((i) => i.typeCost === `food`);
-    testDiv.innerHTML = ``;
+    filterDisplay.innerHTML = ``;
     let sum = 0;
     for (i of result) {
       sum += i.numberCost;
       let elem = document.createElement("li");
       elem.innerText = `amount: $${i.numberCost} | expense type: ${i.typeCost}`;
-      testDiv.appendChild(elem);
+      filterDisplay.appendChild(elem);
     }
     let elemSum = document.createElement(`p`);
     elemSum.innerText = `The total cost of food: $${sum}`;
-    testDiv.appendChild(elemSum);
+    filterDisplay.appendChild(elemSum);
   }
   if (filterSetting.value === `clothing`) {
     let result = costArray.filter((i) => i.typeCost === `clothing`);
-    testDiv.innerHTML = ``;
+    filterDisplay.innerHTML = ``;
     let sum = 0;
     for (i of result) {
       sum += i.numberCost;
       let elem = document.createElement("li");
       elem.innerText = `amount: $${i.numberCost} | expense type: ${i.typeCost}`;
-      testDiv.appendChild(elem);
+      filterDisplay.appendChild(elem);
     }
     let elemSum = document.createElement(`p`);
     elemSum.innerText = `The total cost of clothing: $${sum}`;
-    testDiv.appendChild(elemSum);
+    filterDisplay.appendChild(elemSum);
   }
   if (filterSetting.value === `bills`) {
     let result = costArray.filter((i) => i.typeCost === `bills`);
-    testDiv.innerHTML = ``;
+    filterDisplay.innerHTML = ``;
     let sum = 0;
     for (i of result) {
       sum += i.numberCost;
       let elem = document.createElement("li");
       elem.innerText = `amount: $${i.numberCost} | expense type: ${i.typeCost}`;
-      testDiv.appendChild(elem);
+      filterDisplay.appendChild(elem);
     }
     let elemSum = document.createElement(`p`);
     elemSum.innerText = `The total cost of bills: $${sum}`;
-    testDiv.appendChild(elemSum);
+    filterDisplay.appendChild(elemSum);
   }
 }
