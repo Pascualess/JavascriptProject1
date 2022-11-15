@@ -39,8 +39,8 @@ expensesForm.addEventListener(`submit`, (e) => {
 
   costArray.push(newCost);
 
-  if (income - totalSumOfNumberCost(costArray) < 0) {
-    alert(`Insufficant funds.`);
+  if (income - totalSumOfNumberCost(costArray) < 0) { // This if statment checks to see if the sum of all expenses is in the negative
+    alert(`Insufficant funds.`);                      // and if it is, it will pop the last entry that made that happen out before updating displays
     costArray.pop();
     return;
   }
@@ -143,7 +143,7 @@ function findSumOfFilter(expenseType) {
 
 pieButton.addEventListener(`click`, displayChart);
 function displayChart() {
-  if (pieButton.innerText === `Remove`){
+  if (pieButton.innerText === `Remove`){ // This listener Makes the chart on click then removes it the next click
     chartContainer.innerHTML = `<canvas id="myChart"></canvas>`
     pieButton.innerText = `Pie Chart`
     return
