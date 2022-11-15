@@ -84,7 +84,7 @@ function makeExpenseList(i) {
   expensesArray.appendChild(elem);
 }
 
-filter.addEventListener(`click`, setFilter)
+filter.addEventListener(`click`, setFilter())
 
 
 
