@@ -3,6 +3,7 @@ let filter = document.querySelector(`#filter`);
 let firstForm = document.querySelector(`#incomeForm`);
 let cost = totalSumOfNumberCost(costArray);
 let expensesForm = document.querySelector(`#expensesForm`);
+let pieButton = document.querySelector(`#pieButton`);
 //This is posting the remaining income after submit
 firstForm.addEventListener("submit", displayIncome);
 
@@ -45,7 +46,9 @@ expensesForm.addEventListener(`submit`, (e) => {
 
   displayExpenseList(); // goes through the list and prints them to a <ul>
 
-  pastElement.innerText = `Weekly Budget Remaining: $${+income - totalSumOfNumberCost(costArray)}`;
+  pastElement.innerText = `Weekly Budget Remaining: $${
+    +income - totalSumOfNumberCost(costArray)
+  }`;
   ExpensesTotalDiv.innerHTML = "";
   ExpensesTotalDiv.appendChild(pastElement);
   console.log(totalSumOfNumberCost(costArray));
@@ -82,9 +85,11 @@ function setFilter() {
   let filterSetting = document.querySelector(`#expensesFilter`);
   let filterDisplay = document.querySelector(`#filterDisplay`);
   if (filterSetting.value === `all`) {
-    filterDisplay.innerText = ``
+    filterDisplay.innerText = ``;
     let elemSum = document.createElement(`p`);
-    elemSum.innerText = `The total cost of all expenses: $${totalSumOfNumberCost(costArray)}`;
+    elemSum.innerText = `The total cost of all expenses: $${totalSumOfNumberCost(
+      costArray
+    )}`;
     filterDisplay.appendChild(elemSum);
   }
   if (filterSetting.value === `entertainment`) {
@@ -117,17 +122,44 @@ function forFilterDisplay(expenseType, filterDisplay, filterSetting) {
     filterDisplay.appendChild(elemSum);
   }
 }
-const ctx = document.getElementById('myChart');
-new Chart(ctx, {
-    type: 'doughnut',
+
+function findSumOfFilter(expenseType) {
+  let result = costArray.filter((i) => i.typeCost === `${expenseType}`);
+  let sum = 0;
+    for (index of result) {
+      sum += index.numberCost;
+      }
+      return sum
+}
+
+pieButton.addEventListener(`click`, displayChart);
+function displayChart() {
+  pieButton.innerText = `Update Chart`
+  let data = new FormData(firstForm);
+  let income = data.get("expensesNumber")
+  let remainingIncome = +income - +totalSumOfNumberCost(costArray)
+  let entertainment = findSumOfFilter(`entertainment`);
+  let food = findSumOfFilter(`food`);
+  let clothing = findSumOfFilter(`clothing`);
+  let bills = findSumOfFilter(`bills`);
+  const ctx = document.getElementById("myChart");
+  new Chart(ctx, {
+    type: "doughnut",
     data: {
-      labels: ['Remaining Budget', 'entertainment', 'food', 'clothing', 'bills'],
-      datasets: [{
-        data: [12, 19, 3, 5, 2],
-        borderWidth: 1
-      }]
+      labels: [
+        "remaining budget",
+        "entertainment",
+        "food",
+        "clothing",
+        "bills",
+      ],
+      datasets: [
+        {
+          data: [remainingIncome, entertainment, food, clothing, bills],
+          borderWidth: 1,
+        },
+      ],
     },
-    options: {
-     
-    }
+    options: {},
   });
+}
