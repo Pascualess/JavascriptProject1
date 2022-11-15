@@ -1,63 +1,83 @@
-html { 
-    color: #1D3461;
-    background-color: #1F487E;
-    font-size: 14pt;
-    height: 100%;
+html {
+  color: #1d3461;
+  background-color: #1f487e;
+  font-size: 14pt;
+  height: 100%;
 }
 
-body{
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: #D2DFEF;
-    min-height: 100%;
-
+body {
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #d2dfef;
+  min-height: 100%;
 }
 
+header {
+  text-align: center;
+  padding: 10px;
+}
+#h1Background {
+  background-color: #829cbc;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px #464f51;
+}
 @media screen and (max-width: 768px) {
-    html{
-        font-size: 12pt;
-    };
-    body{
-        /* need to figure out why the margins are not changing from the below items*/
-        margin-left: 1%;
-        margin-right: 0%;
-    };
-
-}
-
-
-#incomeEntry{
-    display:flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-#incomeArray{
-    display: flex;
+  html {
+    font-size: 12pt;
+  }
+  body {
+    /* need to figure out why the margins are not changing from the below items*/
+    margin-left: 1%;
+    margin-right: 0%;
+  }
+  #incomeEntry {
+    /* display: flex; */
     flex-direction: column;
-    justify-content:baseline;
-    align-items: center;
-}
-#incomeTotal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#expensesEntry{
-    display:flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-#expensesArray{
-    display: flex;
+    /* justify-content: flex-start; */
+  }
+  #expensesEntry {
+    /* display: flex; */
     flex-direction: column;
-    justify-content:baseline;
-    align-items: center;
+    /* justify-content: flex-start; */
+  }
+  .submit {
+    align-items:;
+  }
 }
 
-#expensesTotal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#incomeEntry {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+#incomeArray {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+}
+#incomeTotal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#expensesEntry {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#expensesArray {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+}
+
+#expensesTotal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
