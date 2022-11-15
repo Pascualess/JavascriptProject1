@@ -15,35 +15,81 @@ body {
 header {
   text-align: center;
   padding: 10px;
+  width: 100%;
 }
 #h1Background {
   background-color: #829cbc;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 10px 5px 5px #464f51;
+
 }
+
 @media screen and (max-width: 768px) {
   html {
     font-size: 12pt;
   }
   body {
     /* need to figure out why the margins are not changing from the below items*/
-    margin-left: 1%;
-    margin-right: 0%;
-  }
-  #incomeEntry {
-    /* display: flex; */
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
     flex-direction: column;
-    /* justify-content: flex-start; */
+    align-items: center;
+    
   }
-  #expensesEntry {
-    /* display: flex; */
+
+
+
+  .divContainingForm {
+    width: 100%;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border: black solid;
+  }
+
+  .formLabel, #viewExpenses {
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+
+  .form, section {
+    display: flex;
     flex-direction: column;
-    /* justify-content: flex-start; */
+    align-items: center;
+    background-color: #829cbc;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #464f51;
+    font-family: 'Oswald', sans-serif;
+    width: 70%;
+    border: black solid;
   }
-  .submit {
-    align-items:;
+
+
+  .budgetInput, .expensesInput {
+    border-radius: 10px;
   }
+
+  #expensesType, #expensesFilter {
+    border-radius: 10px;
+    margin: 5px;
+  }
+
+  .submit, #filter {
+    border-radius: 10px;
+    margin: 10px;
+  }
+
+  #viewExpensesDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
 }
 
 #incomeEntry {
