@@ -55,7 +55,7 @@ header {
   }
 
 
-  .form {
+  .form, section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,13 +72,20 @@ header {
     border-radius: 10px;
   }
 
-  #expensesType {
+  #expensesType, #expensesFilter {
     border-radius: 10px;
+    margin: 5px;
   }
 
-  .submit {
+  .submit, #filter {
     border-radius: 10px;
     margin: 10px;
+  }
+
+  #viewExpensesDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
