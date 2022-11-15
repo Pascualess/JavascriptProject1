@@ -15,13 +15,16 @@ body {
 header {
   text-align: center;
   padding: 10px;
+  width: 100%;
 }
 #h1Background {
   background-color: #829cbc;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 10px 5px 5px #464f51;
+
 }
+
 @media screen and (max-width: 768px) {
   html {
     font-size: 12pt;
@@ -33,25 +36,50 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+  }
+
+
+
+  .divContainingForm {
+    width: 100%;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border: black solid;
   }
 
   .formLabel {
     font-size: 25px;
   }
 
-  #incomeForm {
+
+  .form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #829cbc;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #464f51;
+    font-family: 'Oswald', sans-serif;
+    width: 70%;
+    border: black solid;
   }
-  #expensesForm {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: flex-start; */
+
+
+  .budgetInput, .expensesInput {
+    border-radius: 10px;
   }
-  /* .submit {
-    align-items:;
-  } */
+
+  #expensesType {
+    border-radius: 10px;
+  }
+
+  .submit {
+    border-radius: 10px;
+    margin: 10px;
+  }
 }
 
 #incomeEntry {

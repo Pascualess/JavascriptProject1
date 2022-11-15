@@ -7,14 +7,17 @@
     <title>Budget Buddy</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="./styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
   </head>
   <header>
     <div id="h1Background"><h1>Budget Buddy</h1></div></header>
 <body>
-  
+
    <!-- Income Entry -->
-<div id="incomeEntry">
-    <form id="incomeForm">
+<div id="incomeEntry" class = "divContainingForm">
+    <form id="incomeForm" class = "form">
         
         <!-- <label class="name">Enter name</label>
         <input class="name" placeholder="name" type ="typeOfText"></input> -->
@@ -32,8 +35,8 @@
 <!-- Comparisons sections -->
 <!-- <div></div> -->
    <!-- Recurring Expenses -->
-    <div id="expensesEntry">
-    <form id="expensesForm">
+    <div id="expensesEntry" class = "divContainingForm">
+    <form id="expensesForm" class = "form">
         <label class="formLabel">Enter Expense</label>
         <input class="expenses" placeholder="$" type ="number" name ="expenseNumber"></input>
     
