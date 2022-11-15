@@ -1,20 +1,17 @@
-* {
-    font-family: Impact; 
+html { 
     color: #1D3461;
     background-color: #1F487E;
-    font-size: 18pt;
+    font-size: 14pt;
 }
 
 body{
     margin-left: 10%;
     margin-right: 10%;
     background-color: #D2DFEF;
-    padding-top: 10pt;
-
 }
 
 @media screen and (max-width: 650px) {
-        
+
  }
 
 
