@@ -1,6 +1,22 @@
- @media screen and (max-width: 650px) {
-    
+* {
+    font-family: Impact; 
+    color: #1D3461;
+    background-color: #1F487E;
+    font-size: 18pt;
+}
+
+body{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #D2DFEF;
+    padding-top: 10pt;
+
+}
+
+@media screen and (max-width: 650px) {
+        
  }
+
 
 .incomeEntry{
     display:flex;
@@ -15,10 +31,14 @@
 }
 .incomeTotal{
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .expensesEntry{
-
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .expensesArray{
@@ -29,5 +49,7 @@
 }
 
 .expensesTotal{
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
