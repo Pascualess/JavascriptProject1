@@ -4,7 +4,7 @@ let firstForm = document.querySelector(`#incomeForm`);
 let cost = totalSumOfNumberCost(costArray);
 let expensesForm = document.querySelector(`#expensesForm`);
 let pieButton = document.querySelector(`#pieButton`);
-let chartContainer = document.querySelector(`#chartContainer`)
+let chartContainer = document.querySelector(`#chartContainer`);
 //This is posting the remaining income after submit
 
 firstForm.addEventListener("submit", displayIncome);
@@ -24,9 +24,7 @@ function displayIncome(e) {
 
 // this adds cost to costArray and updates the remaining income variable
 expensesForm.addEventListener(`submit`, (e) => {
-
   e.preventDefault();
-  let clear = document.querySelector(`#filterDisplay`);
   let data2 = new FormData(firstForm);
   let income = data2.get("expensesNumber");
   let data = new FormData(expensesForm);
@@ -41,13 +39,14 @@ expensesForm.addEventListener(`submit`, (e) => {
 
   costArray.push(newCost);
 
-  if (income - totalSumOfNumberCost(costArray) < 0) { // This if statment checks to see if the sum of all expenses is in the negative
-    alert(`Insufficant funds.`);                      // and if it is, it will pop the last entry that made that happen out before updating displays
+  if (income - totalSumOfNumberCost(costArray) < 0) {
+    // This if statment checks to see if the sum of all expenses is in the negative
+    alert(`Insufficant funds.`); // and if it is, it will pop the last entry that made that happen out before updating displays
     costArray.pop();
     return;
   }
 
-  displayExpenseList(); // goes through the list and prints them to a <ul>
+  setFilter() // goes through the list and prints them to a <ul>
 
   pastElement.innerText = `Weekly Budget Remaining: $${
     +income - totalSumOfNumberCost(costArray)
@@ -55,11 +54,10 @@ expensesForm.addEventListener(`submit`, (e) => {
   ExpensesTotalDiv.innerHTML = "";
   ExpensesTotalDiv.appendChild(pastElement);
   console.log(totalSumOfNumberCost(costArray));
-  clear.innerHTML = ``; //removes the filter array
-  if (pieButton.innerText === `Remove`){
-    chartContainer.innerHTML = `<canvas id="myChart"></canvas>`
-    pieButton.innerText = ``
-    displayChart()
+  if (pieButton.innerText === `Remove`) {
+    chartContainer.innerHTML = `<canvas id="myChart"></canvas>`;
+    pieButton.innerText = ``;
+    displayChart();
   }
 });
 
@@ -72,19 +70,15 @@ function totalSumOfNumberCost(array) {
   return totalSum;
 }
 
-function displayExpenseList() {
-  let expensesArray = document.querySelector(`#testList`);
-  expensesArray.innerHTML = "";
-  for (let i of costArray) {
-    makeExpenseList(i);
-  }
-}
-
-function makeExpenseList(i) {
-  let expensesArray = document.querySelector(`#testList`);
+function makeExpenseList(index) {
+  console.log()
+  let filterDisplay = document.querySelector(`#filterDisplay`);
   let elem = document.createElement("li");
-  elem.innerText = `amount: $${i.numberCost} | expense type: ${i.typeCost}`;
-  expensesArray.appendChild(elem);
+  console.log(filterDisplay)
+  console.log(elem)
+  elem.innerText = `amount: $${index.numberCost} | expense type: ${index.typeCost}`;
+  filterDisplay.appendChild(elem);
+  
 }
 
 filter.addEventListener(`click`, setFilter);
@@ -92,8 +86,14 @@ filter.addEventListener(`click`, setFilter);
 function setFilter() {
   let filterSetting = document.querySelector(`#expensesFilter`);
   let filterDisplay = document.querySelector(`#filterDisplay`);
+  
+  console.log(filterSetting.value)
   if (filterSetting.value === `all`) {
-    filterDisplay.innerText = ``;
+    
+    filterDisplay.innerHTML = "";
+    for (let index of costArray) {
+      makeExpenseList(index);
+    }
     let elemSum = document.createElement(`p`);
     elemSum.innerText = `The total cost of all expenses: $${totalSumOfNumberCost(
       costArray
@@ -112,9 +112,9 @@ function setFilter() {
   if (filterSetting.value === `bills`) {
     forFilterDisplay(`bills`, filterDisplay, filterSetting);
   }
-  if (pieButton.innerText === ``){
-    chartContainer.innerHTML = `<canvas id="myChart"></canvas>`
-    displayChart()
+  if (pieButton.innerText === ``) {
+    chartContainer.innerHTML = `<canvas id="myChart"></canvas>`;
+    displayChart();
   }
 }
 
@@ -138,23 +138,24 @@ function forFilterDisplay(expenseType, filterDisplay, filterSetting) {
 function findSumOfFilter(expenseType) {
   let result = costArray.filter((i) => i.typeCost === `${expenseType}`);
   let sum = 0;
-    for (index of result) {
-      sum += index.numberCost;
-      }
-      return sum
+  for (index of result) {
+    sum += index.numberCost;
+  }
+  return sum;
 }
 
 pieButton.addEventListener(`click`, displayChart);
 function displayChart() {
-  if (pieButton.innerText === `Remove`){ // This listener Makes the chart on click then removes it the next click
-    chartContainer.innerHTML = `<canvas id="myChart"></canvas>`
-    pieButton.innerText = `Pie Chart`
-    return
+  if (pieButton.innerText === `Remove`) {
+    // This listener Makes the chart on click then removes it the next click
+    chartContainer.innerHTML = `<canvas id="myChart"></canvas>`;
+    pieButton.innerText = `Pie Chart`;
+    return;
   }
-  pieButton.innerText = `Remove`
+  pieButton.innerText = `Remove`;
   let data = new FormData(firstForm);
-  let income = data.get("expensesNumber")
-  let remainingIncome = +income - +totalSumOfNumberCost(costArray)
+  let income = data.get("expensesNumber");
+  let remainingIncome = +income - +totalSumOfNumberCost(costArray);
   let entertainment = findSumOfFilter(`entertainment`);
   let food = findSumOfFilter(`food`);
   let clothing = findSumOfFilter(`clothing`);
@@ -180,3 +181,4 @@ function displayChart() {
     options: {},
   });
 }
+
