@@ -38,6 +38,7 @@ header {
     align-items: center;
     
   }
+}
 
 
 
@@ -47,7 +48,6 @@ header {
     padding: 20px;
     display: flex;
     align-items: center;
-    border: black solid;
   }
 
   .formLabel, #viewExpenses {
@@ -65,7 +65,7 @@ header {
     box-shadow: 5px 5px 5px #464f51;
     font-family: 'Oswald', sans-serif;
     width: 70%;
-    border: black solid;
+    
   }
 
 
@@ -90,7 +90,6 @@ header {
   }
 
 
-}
 
 #incomeEntry {
   display: flex;
