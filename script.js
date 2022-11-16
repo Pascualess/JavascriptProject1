@@ -6,6 +6,7 @@ let expensesForm = document.querySelector(`#expensesForm`);
 let pieButton = document.querySelector(`#pieButton`);
 let chartContainer = document.querySelector(`#chartContainer`)
 //This is posting the remaining income after submit
+
 firstForm.addEventListener("submit", displayIncome);
 
 function displayIncome(e) {
@@ -23,6 +24,7 @@ function displayIncome(e) {
 
 // this adds cost to costArray and updates the remaining income variable
 expensesForm.addEventListener(`submit`, (e) => {
+
   e.preventDefault();
   let clear = document.querySelector(`#filterDisplay`);
   let data2 = new FormData(firstForm);
@@ -54,8 +56,9 @@ expensesForm.addEventListener(`submit`, (e) => {
   ExpensesTotalDiv.appendChild(pastElement);
   console.log(totalSumOfNumberCost(costArray));
   clear.innerHTML = ``; //removes the filter array
-  if (pieButton.innerText === ``){
+  if (pieButton.innerText === `Remove`){
     chartContainer.innerHTML = `<canvas id="myChart"></canvas>`
+    pieButton.innerText = ``
     displayChart()
   }
 });
