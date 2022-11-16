@@ -95,7 +95,7 @@ header {
 #incomeEntry {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
 }
 #incomeArray {
   display: flex;
@@ -112,7 +112,7 @@ header {
 #expensesEntry {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 #expensesArray {
