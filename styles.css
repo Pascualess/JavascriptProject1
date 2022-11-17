@@ -40,6 +40,16 @@ header {
   }
 }
 
+body {
+  /* need to figure out why the margins are not changing from the below items*/
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
 
 
   .divContainingForm {
@@ -48,6 +58,7 @@ header {
     padding: 20px;
     display: flex;
     align-items: center;
+    
   }
 
   .formLabel, #viewExpenses {
