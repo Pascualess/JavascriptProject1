@@ -39,7 +39,7 @@ header {
     
   }
 
-
+}
 
   .divContainingForm {
     width: 100%;
@@ -87,10 +87,11 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 
 
-}
+
 
 #incomeEntry {
   display: flex;

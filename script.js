@@ -126,7 +126,7 @@ function forFilterDisplay(expenseType, filterDisplay, filterSetting) {
     for (index of result) {
       sum += index.numberCost;
       let elem = document.createElement("li");
-      elem.innerText = `amount: $${index.numberCost} | expense type: ${index.typeCost}`;
+      elem.innerText = `$${index.numberCost} | Expense Type: ${index.typeCost}`;
       filterDisplay.appendChild(elem);
     }
     let elemSum = document.createElement(`p`);
@@ -148,7 +148,7 @@ pieButton.addEventListener(`click`, displayChart);
 function displayChart() {
   if (pieButton.innerText === `Remove`){ // This listener Makes the chart on click then removes it the next click
     chartContainer.innerHTML = `<canvas id="myChart"></canvas>`
-    pieButton.innerText = `Pie Chart`
+    pieButton.innerText = `Your Expenses Breakdown`
     return
   }
   pieButton.innerText = `Remove`
