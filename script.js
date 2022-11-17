@@ -14,12 +14,17 @@ function displayIncome(e) {
   let data = new FormData(firstForm);
   let income = data.get("expensesNumber");
   let remainingIncome = +income - +totalSumOfNumberCost(costArray);
-  let testDiv = document.querySelector("#incomeTotal");
+  let incomeTotal = document.querySelector("#incomeTotal");
+  let firstSubmitbutton = document.querySelector(`#firstSubmitbutton`)
   let pastElement = document.createElement("p");
+  if(firstSubmitbutton.innerText === `Refresh`) {
+    location.reload();
+  }
 
   pastElement.innerText = `Weekly Budget Remaining: $${remainingIncome}`;
-  testDiv.innerHTML = "";
-  testDiv.appendChild(pastElement);
+  incomeTotal.innerHTML = "";
+  incomeTotal.appendChild(pastElement);
+  firstSubmitbutton.innerText =`Refresh`
 }
 
 // this adds cost to costArray and updates the remaining income variable
