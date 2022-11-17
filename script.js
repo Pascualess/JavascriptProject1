@@ -45,8 +45,8 @@ expensesForm.addEventListener(`submit`, (e) => {
   costArray.push(newCost);
 
   if (income - totalSumOfNumberCost(costArray) < 0) {
-    // This if statment checks to see if the sum of all expenses is in the negative
-    alert(`Insufficant funds.`); // and if it is, it will pop the last entry that made that happen out before updating displays
+                                  // This if statment checks to see if the sum of all expenses is in the negative
+    alert(`Insufficient funds.`); // and if it is, it will pop the last entry that made that happen out before updating displays
     costArray.pop();
     return;
   }
@@ -166,6 +166,7 @@ function displayChart() {
   let clothing = findSumOfFilter(`clothing`);
   let bills = findSumOfFilter(`bills`);
   const ctx = document.getElementById("myChart");
+
   new Chart(ctx, {
     type: "doughnut",
     data: {
